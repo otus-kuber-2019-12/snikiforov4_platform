@@ -48,7 +48,7 @@ docker tag web-static-content ${DOCKER_USER}/web-static-content:${DOCKER_IMAGE_T
 docker push ${DOCKER_USER}/web-static-content:${DOCKER_IMAGE_TAG}
 ```
 
-#### Запуск и работа с сервисом: 
+#### Запуск сервиса
 ```bash
 # Запустить сервис в кластере
 kubectl apply -f web-pod.yaml
@@ -61,5 +61,9 @@ kubectl describe pod web
 kubectl port-forward --address 0.0.0.0 pod/web 8000:8000
 ```
 
-Easy to use Kubernetes port forwarding manager [kube-forwarder](https://kube-forwarder.pixelpoint.io/)</br>
+#### Проверка работы сервиса
+```text
+При открытии http://localhost:8000/ должна отобразиться стартовая страница
+```
 
+Easy to use Kubernetes port forwarding manager [kube-forwarder](https://kube-forwarder.pixelpoint.io/)</br>
