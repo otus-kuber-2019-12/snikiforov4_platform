@@ -3,6 +3,7 @@
 Инструкци по установке [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).<br> 
 Настройка [автокомплитов](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete).<br>
 Инструкция по устновке [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).<br>
+Инструкция по установке [k9s](https://github.com/derailed/k9s).</br>
 
 ```bash
 # Запуск локальной виртуальной машины с кластером
@@ -11,10 +12,8 @@ minikube start
 kubectl cluster-info
 ```
 
-Инструкция по установке [k9s](https://github.com/derailed/k9s).</br>
-
 ```bash
-# Просмотр всех контейнеров свнутри minikube
+# Просмотр всех контейнеров внутри minikube
 minikube ssh
 docker ps
 
@@ -28,14 +27,18 @@ kubectl get cs
 
 
 ### WEB-SERVER
+
+#### Особенности сервиса:
 1) web-сервер на порту 8000 
 2) работающий с UID 1001
 3) Отдающий содержимое директории /app внутри контейнера
 
-Файлы для работы с сервисом: 
+#### Файлы для работы с сервисом: 
 - web/Dockerfile 
-- web/build.sh - собирает докер образ с тэгом `web-static-content`
+- web/build.sh - билд докер образ с тэгом `web-static-content`
 - web-pod.yaml - манифест для запуска сервиса в кластере
+
+#### Описание процесса паблиша образа в DockerHUB
 ```bash
 # Publish image to Docker Hub
 DOCKER_USER=snikiforov4
@@ -45,6 +48,7 @@ docker tag web-static-content ${DOCKER_USER}/web-static-content:${DOCKER_IMAGE_T
 docker push ${DOCKER_USER}/web-static-content:${DOCKER_IMAGE_TAG}
 ```
 
+#### Запуск и работа с сервисом: 
 ```bash
 # Запустить сервис в кластере
 kubectl apply -f web-pod.yaml
