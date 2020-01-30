@@ -1,7 +1,7 @@
 # Platform repository
 
-
-[Kubernetes-intro](docs/kubernetes-intro.md)
+[Kubernetes-intro](docs/kubernetes-intro.md) <br>
+[Kubernetes-controllers](docs/kubernetes-controllers.md) <br>
 
 
 ### kubectl useful commands

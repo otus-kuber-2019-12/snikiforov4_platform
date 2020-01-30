@@ -1,9 +1,10 @@
-# Kubernetes-intro 
+# kubernetes-intro 
 
-Инструкци по установке [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).<br> 
-Настройка [автокомплитов](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete).<br>
-Инструкция по устновке [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).<br>
-Инструкция по установке [k9s](https://github.com/derailed/k9s).</br>
+### Useful links
+Инструкци по установке [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)<br> 
+Настройка [автокомплитов](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete)<br>
+Инструкция по устновке [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)<br>
+Инструкция по установке [k9s](https://github.com/derailed/k9s)</br>
 
 ```bash
 # Запуск локальной виртуальной машины с кластером
