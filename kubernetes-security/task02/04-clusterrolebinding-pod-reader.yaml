@@ -7,9 +7,6 @@ roleRef:
   name: pod-reader
   apiGroup: rbac.authorization.k8s.io
 subjects:
-#  - kind: Group
-#    name: system:serviceaccounts:prometheus
-#    apiGroup: rbac.authorization.k8s.io
-- kind: ServiceAccount
-  name: carol
-  namespace: prometheus
+  - kind: Group
+    name: system:serviceaccounts:prometheus
+    apiGroup: rbac.authorization.k8s.io
