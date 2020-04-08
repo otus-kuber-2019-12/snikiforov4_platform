@@ -4,6 +4,11 @@ metadata:
   name: web
 spec:
   replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 100%
   selector:
     matchLabels:
       app: web
@@ -15,16 +20,16 @@ spec:
       containers:
         - name: web
           image: snikiforov4/web-static-content:1.0.2
-          volumeMounts:
-            - name: app
-              mountPath: /app
+          livenessProbe:
+            tcpSocket:
+              port: 8000
           readinessProbe:
             httpGet:
               path: /index.html
               port: 8000
-          livenessProbe:
-            tcpSocket:
-              port: 8000
+          volumeMounts:
+            - name: app
+              mountPath: /app
       initContainers:
         - name: init-web
           image: busybox:musl
