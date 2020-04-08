@@ -32,8 +32,8 @@ spec:
               port: 8000
       initContainers:
         - name: init-web
-          image: busybox:1.31.1
-          command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
+          image: busybox:musl
+          command: ['sh', '-c', 'wget -O- https://bit.ly/otus-k8s-index-gen | sh']
           volumeMounts:
             - name: app
               mountPath: /app
