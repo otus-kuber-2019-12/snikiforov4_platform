@@ -10,4 +10,11 @@
 ```bash
 kubectl apply -f minio-statefulset.yaml
 kubectl apply -f minio-headlessservice.yaml
+
+# Check what has done use following commands
+kubectl get statefulsets
+kubectl get pods
+kubectl get pvc
+kubectl get pv
+kubectl describe <resource> <resource_name>
 ```
