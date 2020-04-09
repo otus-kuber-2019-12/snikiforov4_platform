@@ -1,3 +1,14 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: miniosecret
+type: Opaque
+# data: presume encoding to base64
+# stringData: contains values in raw format
+stringData:
+  accessKey: "minio"
+  secretKey: "minio123"
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -17,10 +28,16 @@ spec:
       containers:
       - name: minio
         env:
-        - name: MINIO_ACCESS_KEY
-          value: "minio"
-        - name: MINIO_SECRET_KEY
-          value: "minio123"
+          - name: MINIO_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: miniosecret
+                key: accessKey
+          - name: MINIO_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: miniosecret
+                key: secretKey
         image: minio/minio:RELEASE.2019-07-10T00-34-56Z
         args:
         - server
