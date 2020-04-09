@@ -3,6 +3,7 @@
 [Kubernetes-intro](docs/kubernetes-intro.md) <br>
 [Kubernetes-controllers](docs/kubernetes-controllers.md) <br>
 [Kubernetes-security](docs/kubernetes-security.md) <br>
+[Kubernetes-volumes](docs/kubernetes-volumes.md) <br>
 
 
 ### kubectl useful commands
